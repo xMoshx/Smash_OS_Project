@@ -48,3 +48,16 @@ smash pid is 30903
 smash> 
 ```
 
+### 🔹 `pwd`
+- pwd command has no arguments.
+- The pwd command prints the full path of the current working directory.
+- If any number of arguments were provided with this command, they will be ignored.
+
+**Example:**
+```bash
+smash> pwd
+/home/smash/build
+smash>
+```
+
+
