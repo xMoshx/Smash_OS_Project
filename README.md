@@ -35,6 +35,7 @@ Smash implements several built-in commands, which are executed directly inside t
 smash> chprompt custom
 custom> chprompt
 smash>
+```
 
 ### 🔹 `showpid`
 - showpid command prints the smash PID.
@@ -45,5 +46,5 @@ smash>
 smash> showpid
 smash pid is 30903
 smash> 
-
+```
 
