@@ -250,15 +250,13 @@ bash -c "rm *.txt"
 ## Special Commands
 
 ### IO redirection
-- Smash supports simple output redirection using the `>` and `>>` operators.
+Smash supports simple output redirection using the `>` and `>>` operators.
 
-1. `command > output-file` 
-- Redirects the command's standard output to output-file.
+1. `command > output-file` - Redirects the command's standard output to output-file.
 - If the file doesn't exist, it is created.
 - If it exists, its contents are ***overwritten***.
 
-2. `command >> output-file`
-- Redirects the command's standard output and ***appends*** it to output-file.
+2. `command >> output-file` - Redirects the command's standard output and ***appends*** it to output-file.
 - If the file doesn't exist, it is created.
 
 **Notes:**
@@ -280,13 +278,11 @@ smash>
 ```
 
 ### Pipes
-- Smash shell supports simple piping between two commands using `|` and `|&`.
+Smash shell supports simple piping between two commands using `|` and `|&`.
 
-1. `command1 | command2` 
-- Redirects `command1`'s **stdout** to `command2`'s **stdin**.
+1. `command1 | command2` - Redirects `command1`'s **stdout** to `command2`'s **stdin**.
 
-2. `command1 |& command2`
-- Redirects `command1`'s **stderr** to `command2`'s **stdin**.
+2. `command1 |& command2` - Redirects `command1`'s **stderr** to `command2`'s **stdin**.
 
 **Notes:**
 - Each command line can contain only one pipe (`|` or `|&`).
@@ -308,8 +304,23 @@ smash>
 ```
 
 ### DiskUsage Command
-- `du <directory_path>`
-- Recursively calculates and displays total disk space usage for the specified directory in KB. If no path is given, uses the current directory.
+`du <directory_path>`- Recursively calculates and displays total disk space usage for the specified directory in KB. If no path is given, uses the current directory.
 - The directory in the `directory_path` argument **must** exist.
 - Only one argument is expected.
+
+**Example:**
+```bash
+smash> du my_folder
+Total disk usage: 4856 KB
+smash>
+```
+
+### Whoami Command
+`whoami` - Displays the current user's username and their home directory.
+
+**Example:**
+```bash
+smash> whoami
+Mosh /home/mosh
+```
 
