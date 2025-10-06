@@ -250,5 +250,66 @@ bash -c "rm *.txt"
 ## Special Commands
 
 ### IO redirection
-- 
+- Smash supports simple output redirection using the `>` and `>>` operators.
+
+1. `command > output-file` 
+- Redirects the command's standard output to output-file.
+- If the file doesn't exist, it is created.
+- If it exists, its contents are ***overwritten***.
+
+2. `command >> output-file`
+- Redirects the command's standard output and ***appends*** it to output-file.
+- If the file doesn't exist, it is created.
+
+**Notes:**
+- Each command can have at most **one** redirection operator.
+- Commands using I/O redirection **ignore the `&` symbol and cannot be killed by signals** (for simplification).
+- These commands are not tested with commands that use the `wait` system call (again, to simplify implementation).
+
+**Example:**
+```bash
+smash> showpid > pid.txt
+smash> cat pid.txt
+smash pid is 13374
+smash> showpid >> pid.txt
+smash> cat pid.txt
+smash pid is 13374
+smash pid is 13374
+smash> ls -l > ls.txt
+smash>
+```
+
+### Pipes
+- Smash shell supports simple piping between two commands using `|` and `|&`.
+
+1. `command1 | command2` 
+- Redirects `command1`'s **stdout** to `command2`'s **stdin**.
+
+2. `command1 |& command2`
+- Redirects `command1`'s **stderr** to `command2`'s **stdin**.
+
+**Notes:**
+- Each command line can contain only one pipe (`|` or `|&`).
+- Pipe commands produce no errors **only with simple commands** (to simplify implementation).
+- We assume for simplification that they won't run in the background and won't receive signals.
+- Again to simplify, we assume that a command will not include both I/O redirection and a pipe.
+
+**Example:**
+```bash
+smash> cat ls.txt
+total 140
+-rwxrwxrwx 1 root root 6376 Nov 12 10:52 Makefile
+-rwxrwxrwx 1 root root 146 Nov 12 14:11 ls.txt
+-rwxrwxrwx 1 root root 38 Nov 12 14:11 pid.txt
+-rwxrwxrwx 1 root root 82832 Nov 12 13:41 smash
+smash> cat ls.txt | grep Makefile
+-rwxrwxrwx 1 root root 6376 Nov 12 10:52 Makefile
+smash>
+```
+
+### DiskUsage Command
+- `du <directory_path>`
+- Recursively calculates and displays total disk space usage for the specified directory in KB. If no path is given, uses the current directory.
+- The directory in the `directory_path` argument **must** exist.
+- Only one argument is expected.
 
