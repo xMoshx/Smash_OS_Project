@@ -171,7 +171,7 @@ smash>
 - <name> is a case-sensitive, user-defined string that can include only letters (a-z, A-Z), numbers (0-9), and underscores (_). It must not be an internal reserved keyword of the shell (eg., `quit`, `lisdir` etc…).
 - If no arguments are provided, list all current aliases.
 - If the alias name conflicts with an existing alias or a reserved keyword, then an error message would be printed.
-- Syntax has to be valid (number of arguments, the format of the arguments or <name>).
+- Syntax has to be valid (number of arguments, the format of the arguments or `<name>`).
 - We assume no recursive aliases (to make it simple).
 
 **Example:**
