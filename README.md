@@ -23,14 +23,18 @@ To simplify the implementation, the following assumptions are made:
 
 ## How To Run
 **Prerequisites:**
+
 Make sure you have:
 - A Linux environment (or WSL on Windows).
-- GCC compiler installed.
+- GCC compiler installed (C++17).
 - "Make" installed (for using the Makefile).
+- CMake >= 3.10.
 
-**Build, Compile & Run the project (inside bash/terminal):**
-- Make sure your current working directory is the directory this project was saved on.
-- Change the current working direcory to the "build" directory inside the project directory, and then run on bash the following command `make && ./smash`.
+**Build & Run the project (inside bash/terminal):**
+
+From the ***root of the project***, copy this one-liner to build & run:
+`mkdir -p build && cd build && cmake .. && cmake --build . && ./smash`
+
 
 ## Built-in Commands
 
