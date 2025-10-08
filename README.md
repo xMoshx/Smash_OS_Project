@@ -21,6 +21,17 @@ To simplify the implementation, the following assumptions are made:
 - I/O redirection (`>`, `>>`) and pipes (`|`, `|&`) are assumed to be correctly formatted.  
 - Memory allocation (`new` / `malloc`) will not fail, and memory leaks are not checked.
 
+## How To Run
+**Prerequisites:**
+Make sure you have:
+- A Linux environment (or WSL on Windows).
+- GCC compiler installed.
+- "Make" installed (for using the Makefile).
+
+**Build, Compile & Run the project (inside bash/terminal):**
+- Make sure your current working directory is the directory this project was saved on.
+- Change the current working direcory to the "build" directory inside the project directory, and then run on bash the following command `make && ./smash`.
+
 ## Built-in Commands
 
 Smash implements several built-in commands, which are executed directly inside the shell process (without forking).  
@@ -323,4 +334,3 @@ smash>
 smash> whoami
 Mosh /home/mosh
 ```
-
